@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Deficit Tracker</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Tracker">
+<meta name="theme-color" content="#000000">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<style>
+  :root{
+    --bg:#000; --card:#000; --card2:#0e0e0e; --line:#1c1c1c;
+    --text:#fff; --muted:#7a7a7a; --accent:#fff; --accent2:#9a9a9a;
+    --danger:#ff5a5a; --protein:#bdbdbd;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--text);font-family:'Helvetica Neue',Helvetica,Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:560px;margin:0 auto;padding:calc(16px + env(safe-area-inset-top)) 16px 110px}
+  header{display:flex;justify-content:space-between;align-items:center;margin:8px 0 24px}
+  h1{font-size:22px;margin:0;font-weight:700;letter-spacing:-.03em}
+  .sync{font-size:11px;color:var(--muted)}
+  .card{background:var(--card);border-top:1px solid var(--line);padding:22px 0;margin:0}
+  .row{display:flex;gap:10px;align-items:center}
+  .between{justify-content:space-between}
+  .muted{color:var(--muted)} .small{font-size:12px}
+  .datebar{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+  .datebar button{background:transparent;border:1px solid var(--line);color:var(--text);width:38px;height:38px;border-radius:99px;font-size:18px;cursor:pointer}
+  .datebar .d{font-weight:700}
+  .ringwrap{display:flex;gap:18px;align-items:center}
+  .ring{position:relative;width:130px;height:130px;flex:none}
+  .ring svg{transform:rotate(-90deg)}
+  .ring .c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .ring .big{font-size:30px;font-weight:300;letter-spacing:-.03em}
+  .stat{margin-bottom:10px}
+  .stat .lab{font-size:12px;color:var(--muted)}
+  .stat .val{font-size:16px;font-weight:700}
+  .bar{height:3px;background:var(--card2);border-radius:99px;overflow:hidden;margin-top:5px}
+  .bar>i{display:block;height:100%;border-radius:99px}
+  input,select{width:100%;background:var(--card2);border:1px solid var(--line);color:var(--text);border-radius:0;border-width:0 0 1px;background:transparent;padding:11px 0;font:inherit;font-size:15px}
+  input:focus,select:focus{outline:none;border-color:#fff}
+  select option{background:#000}
+  label{font-size:12px;color:var(--muted);display:block;margin-bottom:5px}
+  .btn{background:#fff;color:#000;border:0;border-radius:99px;padding:11px 16px;font:inherit;font-weight:700;cursor:pointer;white-space:nowrap}
+  .btn.ghost{background:var(--card2);color:var(--text);border:1px solid var(--line)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;max-height:220px;overflow:auto;padding-right:2px}
+  .chip{background:transparent;border:1px solid #2a2a2a;color:var(--text);border-radius:99px;padding:8px 12px;font:inherit;font-size:13px;cursor:pointer}
+  .chip b{color:var(--muted);font-weight:400;margin-left:4px}
+  .chip:active{transform:scale(.97)}
+  .entry{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+  .entry:last-child{border-bottom:0}
+  .entry .n{font-weight:600;font-size:14px}
+  .entry .x{background:none;border:0;color:var(--muted);font-size:20px;cursor:pointer;padding:0 4px}
+  .tabs{position:fixed;bottom:0;left:0;right:0;background:rgba(0,0,0,.92);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;justify-content:center;padding:8px 8px calc(8px + env(safe-area-inset-bottom))}
+  .tabs .in{display:flex;gap:6px;max-width:560px;width:100%}
+  .tabs button{flex:1;background:none;border:0;color:var(--muted);font:inherit;font-size:13px;font-weight:600;padding:10px;border-radius:12px;cursor:pointer}
+  .tabs button.on{color:#fff}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+  .kpi{padding:4px 0}
+  .kpi .v{font-size:26px;font-weight:300;letter-spacing:-.03em}
+  .kpi .l{font-size:11px;color:var(--muted);margin-top:2px}
+  h2{font-size:11px;margin:0 0 14px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+  .tip{font-size:13px;line-height:1.5;color:#c8c8c8;margin:0 0 8px;padding-left:14px;position:relative}
+  .tip:before{content:"";position:absolute;left:0;top:9px;width:6px;height:1px;background:var(--muted)}
+  .hidden{display:none}
+  .toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:#fff;color:#000;font-weight:700;padding:9px 16px;border-radius:99px;font-size:13px;opacity:0;transition:opacity .2s;pointer-events:none}
+  .toast.show{opacity:1}
+  .search{margin-bottom:10px}
+  .chart{width:100%;height:190px}
+  .warn{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:12px;padding:10px 12px;font-size:12.5px;line-height:1.45}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Deficit Tracker</h1>
+    <span class="sync" id="sync">Loading…</span>
+  </header>
+
+  <!-- TODAY -->
+  <section id="tab-today">
+    <div class="datebar">
+      <button id="prev" aria-label="Previous day">‹</button>
+      <div class="d" id="dateLabel"></div>
+      <button id="next" aria-label="Next day">›</button>
+    </div>
+
+    <div class="card">
+      <div class="ringwrap">
+        <div class="ring">
+          <svg width="130" height="130" viewBox="0 0 130 130">
+            <circle cx="65" cy="65" r="56" fill="none" stroke="#1a1a1a" stroke-width="4"/>
+            <circle id="ringArc" cx="65" cy="65" r="56" fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round" stroke-dasharray="351.86" stroke-dashoffset="351.86"/>
+          </svg>
+          <div class="c"><div class="big" id="left">0</div><div class="small muted" id="leftLab">kcal left</div></div>
+        </div>
+        <div style="flex:1">
+          <div class="stat"><div class="lab">Eaten / target</div><div class="val" id="eaten">0 / 0 kcal</div></div>
+          <div class="stat"><div class="lab">Protein</div><div class="val" id="prot">0 / 0 g</div>
+            <div class="bar"><i id="protBar" style="width:0;background:var(--protein)"></i></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Quick add</h2>
+      <input class="search" id="search" placeholder="Search foods (jollof, eba, egg…)">
+      <div class="chips" id="chips"></div>
+    </div>
+
+    <div class="card">
+      <h2>Add your own</h2>
+      <div class="row" style="margin-bottom:10px"><input id="cName" placeholder="What did you eat?"></div>
+      <div class="row">
+        <input id="cKcal" type="number" inputmode="numeric" placeholder="kcal">
+        <input id="cProt" type="number" inputmode="numeric" placeholder="protein g">
+        <button class="btn" id="cAdd">Add</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="row between"><h2 style="margin:0">Logged</h2><span class="small muted" id="count"></span></div>
+      <div id="entries"></div>
+    </div>
+  </section>
+
+  <!-- WEIGHT -->
+  <section id="tab-weight" class="hidden">
+    <div class="card">
+      <h2>Log weight</h2>
+      <div class="row">
+        <input id="wIn" type="number" step="0.1" inputmode="decimal" placeholder="kg">
+        <button class="btn" id="wAdd">Save</button>
+      </div>
+      <p class="small muted" style="margin:10px 0 0">Weigh in the morning, after the toilet, before eating. Once or twice a week is enough.</p>
+    </div>
+    <div class="card">
+      <div class="grid3">
+        <div class="kpi"><div class="v" id="kNow">–</div><div class="l">Current kg</div></div>
+        <div class="kpi"><div class="v" id="kLost">–</div><div class="l">Lost kg</div></div>
+        <div class="kpi"><div class="v" id="kBmi">–</div><div class="l">BMI</div></div>
+      </div>
+      <div style="margin-top:14px">
+        <div class="row between small"><span class="muted">Progress to goal</span><span id="goalTxt"></span></div>
+        <div class="bar" style="height:3px"><i id="goalBar" style="width:0;background:var(--accent)"></i></div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Trend</h2>
+      <svg class="chart" id="chart" viewBox="0 0 520 190" preserveAspectRatio="none"></svg>
+      <div id="wList" style="margin-top:8px"></div>
+    </div>
+  </section>
+
+  <!-- PLAN -->
+  <section id="tab-plan" class="hidden">
+    <div class="card">
+      <h2>Your numbers</h2>
+      <div class="grid2">
+        <div class="kpi"><div class="v" id="pBmr">–</div><div class="l">BMR (at rest)</div></div>
+        <div class="kpi"><div class="v" id="pTdee">–</div><div class="l">Maintenance kcal</div></div>
+        <div class="kpi"><div class="v" id="pTarget" >–</div><div class="l">Daily target</div></div>
+        <div class="kpi"><div class="v" id="pProt" >–</div><div class="l">Protein / day</div></div>
+      </div>
+      <p class="small muted" style="margin:12px 0 0" id="pEta"></p>
+    </div>
+
+    <div class="card">
+      <h2>Settings</h2>
+      <p class="small" id="firstRun" style="margin:-4px 0 14px;color:#fff;display:none">Welcome — enter your details and tap Save to set your daily target.</p>
+      <div class="grid2" style="margin-bottom:10px">
+        <div><label>Age</label><input id="sAge" type="number" inputmode="numeric"></div>
+        <div><label>Sex</label><select id="sSex"><option value="m">Male</option><option value="f">Female</option></select></div>
+                <div><label>Height (cm)</label><input id="sHeight" type="number" inputmode="numeric"></div>
+        <div><label>Starting weight (kg)</label><input id="sStart" type="number" step="0.1" inputmode="decimal"></div>
+        <div><label>Goal weight (kg)</label><input id="sGoal" type="number" step="0.5" inputmode="decimal"></div>
+      </div>
+      <div style="margin-bottom:10px"><label>Activity</label>
+        <select id="sAct">
+          <option value="1.2">Mostly sitting (desk work, little walking)</option>
+          <option value="1.375">Light (walking, 1–3 workouts/week)</option>
+          <option value="1.55">Moderate (3–5 workouts/week)</option>
+          <option value="1.725">Very active (hard training most days)</option>
+        </select></div>
+      <div style="margin-bottom:12px"><label>Pace</label>
+        <select id="sPace">
+          <option value="300">Gentle — about 0.3 kg/week</option>
+          <option value="500">Steady — about 0.5 kg/week</option>
+          <option value="750">Faster — about 0.75 kg/week</option>
+        </select></div>
+      <button class="btn" id="sSave" style="width:100%">Save settings</button>
+    </div>
+
+    <div class="card">
+      <h2>How the plan works</h2>
+      <p class="tip">Eat around your daily target. A weekly average matters more than any single day — one big day doesn't ruin it.</p>
+      <p class="tip">Hit your protein first. It keeps you full and protects muscle while you lose fat. Eggs, chicken, fish, beans, moi moi, suya, Greek yoghurt.</p>
+      <p class="tip">Watch the swallow and the oil. A big wrap of eba or pounded yam with oily soup can be 800+ kcal. Smaller wrap, more protein in the soup, less palm oil.</p>
+      <p class="tip">Drinks count. Malt, soft drinks and juice add up fast — swap for water, zero-sugar drinks, or unsweetened tea.</p>
+      <p class="tip">Walk. 8–10k steps a day makes the deficit much easier. Add 2–3 strength sessions a week if you can.</p>
+      <p class="tip">Weight jumps around 1–2 kg day to day (water, salt). Judge progress on the trend over 2–3 weeks.</p>
+      <p class="tip">Every 5 kg lost, update your weight — the target recalculates automatically.</p>
+      <div class="warn" style="margin-top:12px">Calories for Nigerian dishes are rough averages — portions and oil vary a lot. If you have a health condition or feel dizzy or unwell, check with a doctor.</div>
+    </div>
+  </section>
+</div>
+
+<nav class="tabs"><div class="in">
+  <button data-tab="today" class="on">Today</button>
+  <button data-tab="weight">Weight</button>
+  <button data-tab="plan">Plan</button>
+</div></nav>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+const FOODS = [
+  ["Jollof rice (1 cup)",300,6],["White rice (1 cup)",205,4],["Fried rice (1 cup)",330,7],
+  ["Eba (1 medium wrap)",360,1],["Pounded yam (1 medium wrap)",400,4],["Amala (1 medium wrap)",300,3],["Semovita (1 medium wrap)",350,9],
+  ["Egusi soup (1 ladle)",250,10],["Efo riro (1 ladle)",180,8],["Okra soup (1 ladle)",120,6],["Ogbono soup (1 ladle)",220,7],["Pepper soup, chicken (1 bowl)",220,25],
+  ["Beans / ewa (1 cup)",230,15],["Moi moi (1 wrap)",180,10],["Akara (3 balls)",210,8],
+  ["Fried plantain / dodo (½ plantain)",180,1],["Boiled plantain (1)",220,2],["Boiled yam (2 slices)",230,3],["Yam porridge (1 cup)",300,5],
+  ["Boiled egg",75,6],["Fried egg",95,6],["Chicken breast (palm-size)",165,31],["Chicken thigh, fried",250,20],
+  ["Grilled fish (palm-size)",150,26],["Fried fish (1 piece)",230,22],["Beef stew meat (3 pieces)",210,22],["Suya (100 g)",280,30],["Kpomo / ponmo (2 pieces)",60,4],
+  ["Indomie (1 pack)",380,8],["Bread (1 slice)",80,3],["Agege bread (2 slices)",200,6],["Puff-puff (3)",300,4],["Meat pie (1)",350,9],
+  ["Garri soaked w/ milk & sugar (1 cup)",350,5],["Pap / ogi w/ milk (1 bowl)",200,5],["Oats w/ milk (1 bowl)",250,10],["Cornflakes w/ milk (1 bowl)",220,7],
+  ["Greek yoghurt (1 cup)",150,20],["Milk (1 cup)",120,8],["Banana",105,1],["Apple",95,0],["Orange",65,1],["Groundnuts (handful)",170,7],["Coconut (1 chunk)",160,1],
+  ["Malt drink (1 can)",160,1],["Coke / Fanta (1 bottle)",140,0],["Zobo, sweetened (1 cup)",120,0],["Chapman (1 glass)",180,0],["Beer (1 bottle)",200,2],
+  ["Shawarma (1)",550,25],["Small chops (5 pieces)",400,12],["Chin chin (handful)",200,3]
+];
+
+// ---------- state ----------
+let profile = {age:25, sex:"f", height:165, goal:60, act:1.375, pace:500, start:70, weights:[]};
+let day = {entries:[]};
+let curDate = iso(new Date());
+let db = null, uid = null, mode = "local";
+
+function iso(d){const z=new Date(d.getTime()-d.getTimezoneOffset()*60000);return z.toISOString().slice(0,10)}
+function $(id){return document.getElementById(id)}
+function toast(t){const e=$("toast");e.textContent=t;e.classList.add("show");clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove("show"),1400)}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+
+// ---------- storage ----------
+const queues = {};
+function lsGet(k){try{return JSON.parse(localStorage.getItem("cdt:"+k))}catch(e){return null}}
+function lsSet(k,v){try{localStorage.setItem("cdt:"+k,JSON.stringify(v))}catch(e){}}
+function ref(k){return db.collection("data/users/"+uid).doc(k)}
+async function load(k){
+  if(mode==="db"){
+    try{const s=await ref(k).get();return s.exists?JSON.parse(JSON.stringify(s.data())):null}
+    catch(e){return lsGet(k)}
+  }
+  return lsGet(k);
+}
+function save(k,v){
+  lsSet(k,v);
+  if(mode!=="db") return;
+  const body=JSON.parse(JSON.stringify(v));
+  queues[k]=(queues[k]||Promise.resolve()).then(()=>ref(k).set(body)).catch(err=>{
+    if(err&&err.code==="quota_exceeded") toast("Storage full");
+  });
+}
+
+// ---------- math ----------
+function latestWeight(){const w=profile.weights;return w.length?w[w.length-1].kg:profile.start}
+function calc(){
+  const w=latestWeight(), h=+profile.height, a=+profile.age;
+  const bmr=10*w+6.25*h-5*a+(profile.sex==="m"?5:-161);
+  const tdee=bmr*(+profile.act);
+  const floor=profile.sex==="m"?1500:1200;
+  const target=Math.max(floor,Math.round((tdee-(+profile.pace))/10)*10);
+  const goal=+profile.goal||w;
+  const protein=Math.round(Math.min(w,Math.max(goal,0)+10)*1.8/5)*5;
+  return {bmr:Math.round(bmr),tdee:Math.round(tdee),target,protein,w};
+}
+
+// ---------- render ----------
+function renderToday(){
+  const c=calc();
+  const d=new Date(curDate+"T12:00:00");
+  const today=iso(new Date());
+  $("dateLabel").textContent = curDate===today?"Today":d.toLocaleDateString(undefined,{weekday:"short",day:"numeric",month:"short"});
+  $("next").style.visibility = curDate>=today?"hidden":"visible";
+  const kcal=day.entries.reduce((s,e)=>s+(+e.kcal||0),0);
+  const prot=day.entries.reduce((s,e)=>s+(+e.p||0),0);
+  const left=c.target-kcal;
+  $("left").textContent=Math.abs(left).toLocaleString();
+  $("leftLab").textContent=left>=0?"kcal left":"kcal over";
+  $("left").style.color=left>=0?"var(--text)":"var(--danger)";
+  const pct=Math.min(1,kcal/c.target);
+  const arc=$("ringArc");arc.style.strokeDashoffset=351.86*(1-pct);
+  arc.style.stroke=left<0?"var(--danger)":"var(--accent)";
+  $("eaten").textContent=kcal.toLocaleString()+" / "+c.target.toLocaleString()+" kcal";
+  $("prot").textContent=prot+" / "+c.protein+" g";
+  $("protBar").style.width=Math.min(100,prot/c.protein*100)+"%";
+  $("count").textContent=day.entries.length?day.entries.length+" items":"";
+  $("entries").innerHTML=day.entries.length?day.entries.map((e,i)=>
+    `<div class="entry"><div><div class="n">${esc(e.n)}</div><div class="small muted">${e.kcal} kcal · ${e.p||0} g protein</div></div><button class="x" data-i="${i}" aria-label="Remove">×</button></div>`).join("")
+    :`<p class="small muted" style="margin:0">Nothing logged yet. Tap a food above to add it.</p>`;
+}
+function renderChips(){
+  const q=$("search").value.trim().toLowerCase();
+  $("chips").innerHTML=FOODS.map((f,i)=>[f,i]).filter(([f])=>!q||f[0].toLowerCase().includes(q))
+    .map(([f,i])=>`<button class="chip" data-f="${i}">${esc(f[0])}<b>${f[1]}</b></button>`).join("")||`<span class="small muted">No match — use "Add your own".</span>`;
+}
+function renderWeight(){
+  const w=profile.weights, c=calc();
+  const now=latestWeight();
+  const lost=+(profile.start-now).toFixed(1);
+  $("kNow").textContent=now.toFixed(1);
+  $("kLost").textContent=(lost>0?"":"")+lost.toFixed(1);
+  $("kBmi").textContent=(now/Math.pow(profile.height/100,2)).toFixed(1);
+  const total=profile.start-profile.goal;
+  const prog=total>0?Math.max(0,Math.min(1,(profile.start-now)/total)):0;
+  $("goalBar").style.width=(prog*100)+"%";
+  $("goalTxt").textContent=Math.round(prog*100)+"% · "+Math.max(0,now-profile.goal).toFixed(1)+" kg to go";
+  // chart
+  const pts=[{d:"start",kg:profile.start},...w];
+  const svg=$("chart");
+  if(pts.length<2){svg.innerHTML=`<text x="260" y="95" text-anchor="middle" fill="#7a7a7a" font-size="13">Log a weight to see your trend</text>`;}
+  else{
+    const ks=pts.map(p=>p.kg).concat([profile.goal]);
+    const mn=Math.min(...ks)-1, mx=Math.max(...ks)+1;
+    const X=i=>20+i*(480/(pts.length-1)), Y=k=>170-(k-mn)/(mx-mn)*150;
+    const path=pts.map((p,i)=>(i?"L":"M")+X(i).toFixed(1)+" "+Y(p.kg).toFixed(1)).join(" ");
+    svg.innerHTML=`<line x1="20" x2="500" y1="${Y(profile.goal)}" y2="${Y(profile.goal)}" stroke="#666" stroke-dasharray="4 5" stroke-width="1.5"/>
+      <text x="500" y="${Y(profile.goal)-6}" text-anchor="end" fill="#666" font-size="11">goal ${profile.goal}</text>
+      <path d="${path}" fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+      ${pts.map((p,i)=>`<circle cx="${X(i)}" cy="${Y(p.kg)}" r="2.5" fill="#fff"/>`).join("")}`;
+  }
+  $("wList").innerHTML=w.slice().reverse().slice(0,10).map((p,ri)=>{const i=w.length-1-ri;
+    return `<div class="entry"><div><div class="n">${p.kg.toFixed(1)} kg</div><div class="small muted">${new Date(p.d+"T12:00:00").toLocaleDateString(undefined,{day:"numeric",month:"short",year:"numeric"})}</div></div><button class="x" data-w="${i}" aria-label="Remove">×</button></div>`}).join("");
+}
+function renderPlan(){
+  const c=calc();
+  $("pBmr").textContent=c.bmr.toLocaleString();
+  $("pTdee").textContent=c.tdee.toLocaleString();
+  $("pTarget").textContent=c.target.toLocaleString();
+  $("pProt").textContent=c.protein+" g";
+  const deficit=c.tdee-c.target, kgWk=deficit*7/7700, toGo=Math.max(0,c.w-profile.goal);
+  $("pEta").textContent=toGo>0?`Deficit ≈ ${deficit} kcal/day → about ${kgWk.toFixed(2)} kg/week. At that pace, ${toGo.toFixed(1)} kg to goal takes roughly ${Math.ceil(toGo/kgWk)} weeks.`:"You're at your goal — switch to maintenance calories.";
+  $("sAge").value=profile.age;$("sSex").value=profile.sex;$("sHeight").value=profile.height;$("sGoal").value=profile.goal;$("sStart").value=profile.start;
+  $("sAct").value=String(profile.act);$("sPace").value=String(profile.pace);
+}
+function renderAll(){renderToday();renderWeight();renderPlan();}
+
+// ---------- actions ----------
+async function openDay(d){curDate=d;day=(await load("day-"+d))||{entries:[]};if(!Array.isArray(day.entries))day.entries=[];renderToday();}
+function addEntry(n,kcal,p){day.entries.push({n,kcal:Math.round(kcal),p:Math.round(p||0)});save("day-"+curDate,day);renderToday();toast("+"+Math.round(kcal)+" kcal");}
+
+$("chips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;const f=FOODS[+b.dataset.f];addEntry(f[0],f[1],f[2]);});
+$("search").addEventListener("input",renderChips);
+$("cAdd").addEventListener("click",()=>{const n=$("cName").value.trim()||"Custom food",k=+$("cKcal").value,p=+$("cProt").value||0;
+  if(!k||k<0){toast("Enter calories");return}addEntry(n,k,p);$("cName").value="";$("cKcal").value="";$("cProt").value="";});
+$("entries").addEventListener("click",e=>{const b=e.target.closest(".x");if(!b)return;day.entries.splice(+b.dataset.i,1);save("day-"+curDate,day);renderToday();});
+$("prev").addEventListener("click",()=>{const d=new Date(curDate+"T12:00:00");d.setDate(d.getDate()-1);openDay(iso(d));});
+$("next").addEventListener("click",()=>{const d=new Date(curDate+"T12:00:00");d.setDate(d.getDate()+1);if(iso(d)<=iso(new Date()))openDay(iso(d));});
+$("wAdd").addEventListener("click",()=>{const k=+$("wIn").value;if(!k||k<30||k>300){toast("Enter weight in kg");return}
+  const d=iso(new Date());const ex=profile.weights.findIndex(x=>x.d===d);
+  if(ex>=0)profile.weights[ex].kg=k;else profile.weights.push({d,kg:k});
+  profile.weights.sort((a,b)=>a.d<b.d?-1:1);save("profile",profile);$("wIn").value="";renderAll();toast("Weight saved");});
+$("wList").addEventListener("click",e=>{const b=e.target.closest(".x");if(!b)return;profile.weights.splice(+b.dataset.w,1);save("profile",profile);renderAll();});
+$("sSave").addEventListener("click",()=>{profile.age=+$("sAge").value||profile.age;profile.sex=$("sSex").value;profile.height=+$("sHeight").value||profile.height;
+  profile.goal=+$("sGoal").value||profile.goal;profile.start=+$("sStart").value||profile.start;profile.act=+$("sAct").value;profile.pace=+$("sPace").value;save("profile",profile);renderAll();$("firstRun").style.display="none";toast("Settings saved");});
+document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll(".tabs button").forEach(x=>x.classList.toggle("on",x===b));
+  ["today","weight","plan"].forEach(t=>$("tab-"+t).classList.toggle("hidden",t!==b.dataset.tab));window.scrollTo(0,0);}));
+
+// ---------- boot ----------
+async function boot(){
+  renderChips();
+  const localProfile=lsGet("profile"); if(localProfile) profile=Object.assign(profile,localProfile);
+  if(!localProfile && !(window.claude&&window.claude.use)){ $("firstRun").style.display="block"; document.querySelector('.tabs button[data-tab="plan"]').click(); }
+  await openDay(curDate); renderAll();
+  $("sync").textContent="Connecting…";
+  try{
+    if(window.claude&&window.claude.use){
+      const [d,u]=await Promise.all([window.claude.use("db"),window.claude.use("user")]);
+      if(d&&u){uid=await u.id(); if(uid){db=d;mode="db";}}
+    }
+  }catch(e){}
+  if(mode==="db"){
+    const p=await load("profile");
+    if(p){profile=Object.assign(profile,p);} else if(localProfile){save("profile",profile);}
+    await openDay(curDate); renderAll();
+    $("sync").textContent="● Synced to your account";
+  } else {
+    $("sync").textContent="";
+  }
+}
+boot();
+})();
+</script>
+</body>
+</html>
